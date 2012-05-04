@@ -38,25 +38,26 @@ fi
 usage() {
 cat << EOF
 Usage: `basename $0` -m <dump/dumpall/restore/count> -f <mysqldump file path> -d <database> -H <hostname> -P <port> -u <mysql user> -p <mysql password>
- -m	specify what to do, below.
-	dump	-> mysqldump the database
-	dumpall	-> mysqldump all of the databases.
-	restore	-> restore the mysqldump file with -f option.
-	count	-> count the number of the records in the database.
- -H	specify the host to connect.(default: localhost)
- -P	specify the port to connect.(defaut: 3306)
- -p	specify the password to connect the database.
- -u	specify the user to connect the database.
- -d	specify the database to dump, necessary when -m dump option used.
- -f	mysqldump file to restore, necessary when with -m restore option used.
- -h	show command option
- -V	show command version
+
+ -m specify what to do, below.
+      dump	-> mysqldump the database
+      dumpall	-> mysqldump all of the databases.
+      restore	-> restore the mysqldump file with -f option.
+      count	-> count the number of the records in the database.
+ -H specify the host to connect.(default: localhost)
+ -P specify the port to connect.(defaut: 3306)
+ -p specify the password to connect the database.
+ -u specify the user to connect the database.
+ -d specify the database to dump, necessary when -m dump option used.
+ -f mysqldump file to restore, necessary when with -m restore option used.
+ -h show command option
+ -V show command version
 
 EOF
 exit 2
 }
 
-while getopts "d:f:m:p:u:H:P:h:V" opt ; do
+while getopts "d:f:m:p:u:H:P:hV" opt ; do
   case $opt in
   d )
   opt_d="$OPTARG"
